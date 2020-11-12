@@ -17,9 +17,18 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
+    /**
+     * 一次性加载的ztree
+     * @return
+     */
     @RequestMapping("/toMenuView")
     public String toMenuView(){
         return "/menu/ztree_menu";
+    }
+
+    @RequestMapping("/toAsyncTree")
+    public String toAsyncView(){
+        return "/menu/ztree_menu_async";
     }
 
     @RequestMapping("/getMenuList")
