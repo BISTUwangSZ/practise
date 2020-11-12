@@ -1,0 +1,38 @@
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; *vertical-align:middle}
+.ztree * {font-size: 10pt;font-family:"Microsoft Yahei",Verdana,Simsun,"Segoe UI Web Light","Segoe UI Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","Helvetica Neue",Arial}
+.ztree li ul{ margin:0; padding:0}
+.ztree li {line-height:30px;}
+.ztree li a {width:93%;height:30px;padding-top: 0px;padding-right: 5%}
+.ztree li a:hover {text-decoration:none; background-color: #E7E7E7;}
+.ztree li a span.button.switch {visibility:hidden}
+.ztree.showIcon li a span.button.switch {visibility:visible}
+.ztree li a.curSelectedNode {background-color:#D4D4D4;border:0;height:30px;}
+.ztree li span {line-height:30px;vertical-align: -2px}
+.ztree li span.button {margin-top: -7px;}
+.ztree li span.button.switch {width: 16px;height: 16px;}
+.ztree li span.button {vertical-align: middle;margin: 0}
+.ztree li span.button.ico_open {vertical-align: middle;margin: 0}
+.ztree li span.button.ico_close {vertical-align: middle;margin: 0}
+.ztree li span.button.ico_docu {vertical-align: middle;margin: 0}
+.ztree li span.button.edit {vertical-align: middle}
+.ztree li span.button.remove {vertical-align: middle}
+ul.ztree{border: none;width: auto;overflow: auto;width: 80%;margin: 0 auto;margin-top: 5%;}
+.level0 li,span,a,ul {margin-left: 20px ;}
+.open_dialog{margin-top: 10%;margin-left: 5%;}
+.open_dialog table tr {height: 40px}
+.open_dialog table tr td {width: 180px}
+.open_dialog table tr td input{width: 150px;padding: 3px}
+.ztree li.level0 .noline_close {
+    background-image: url(../img/ztree-slide-down.png) !important;
+    background-size: 1.125rem 1.125rem !important;
+    background-repeat: no-repeat !important;
+    background-position: center left !important;
+    margin-right: 10px;
+}
+.ztree li.level0 .noline_open {
+    background-image: url(../img/ztree-slide-up.png) !important;
+    background-size: 1.125rem 1.125rem !important;
+    background-repeat: no-repeat !important;
+    background-position: center left !important;
+    margin-right: 10px;
+}

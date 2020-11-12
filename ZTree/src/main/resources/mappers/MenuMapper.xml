@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wsz.practise.module.menu.MenuMapper">
+    <resultMap id="menu" type="com.wsz.practise.module.menu.MenuCondition">
+        <id column="id" property="id" />
+        <result column="menu_name" property="menuName" />
+        <result column="father_id" property="fatherId" />
+    </resultMap>
+    <select id="getMenuList" resultMap="menu"
+            parameterType="com.wsz.practise.module.menu.MenuCondition">
+        SELECT * FROM menus where state=1
+    </select>
+
+    <update id="updateMenu" parameterType="com.wsz.practise.module.menu.MenuCondition">
+        update menus set menu_name = #{menuName} where id = #{id}
+    </update>
+
+    <insert id="addMenu" parameterType="com.wsz.practise.module.menu.MenuCondition" useGeneratedKeys="true" keyProperty="id">
+        insert into menus(menu_name, father_id, state) values (#{menuName}, #{fatherId},1)
+    </insert>
+
+    <update id="deleteMenu" parameterType="com.wsz.practise.module.menu.MenuCondition">
+        update menus set state = 0 where id= #{id}
+    </update>
+
+</mapper>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery/js/jquery.js"></script>
+</head>
+<body>
+测试
+<div id="test">
+
+</div>
+</body>
+</html>
+
+<script>
+    $.ajax({
+        type: "POST",
+        url: "/a/getInfo",
+        contentType : "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function(data){
+            $("#test").append(data);
+        }
+    });
+</script>
