@@ -5,6 +5,7 @@ $(document).ready(function(){
 var setting = {
     view: {
         showLine: false,
+        showIcon:false,
         // 鼠标放上去的时候显示编辑、删除按钮
         addHoverDom: addHoverDom,
         // 鼠标放上去的时候取消编辑、删除按钮
@@ -71,7 +72,7 @@ function addHoverDom(treeId, treeNode) {
     var deleStr = "<span style='margin-left: 10px;height: auto; float: right;' class='layui-btn' id='deleteBtn_" + treeNode.tId
         + "' title='删除' onfocus='this.blur();'>删除</span>";
 
-    if (treeNode.isParent==1){
+    if (treeNode.level==0){
         sObj.after(deleStr+editStr+addStr);
     } else {
         sObj.after(deleStr+editStr);
@@ -214,5 +215,43 @@ function deleteNode(treeNode) {
                 zTree.removeNode(treeNode);
             }
         });
+    });
+}
+//新建根结点
+function addFirst() {
+    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+    layer.open({
+        type: 1
+        ,title: '新增菜单' //显示标题栏
+        ,closeBtn: false
+        ,area: openSize
+        ,shade: 0.8
+        ,id: 'LAY_layuipro_root' //设定一个id，防止重复弹出
+        ,resize: false
+        ,btn: ['确认', '取消']
+        ,btnAlign: 'c'
+        ,moveType: 1 //拖拽模式，0或者1
+        ,content: dialog
+        ,yes: function(index){
+            var param = {};
+            var menuName = $("#menu_name").val();
+            if (menuName=="") {
+                layer.alert('菜单名称不能为空');
+                return;
+            }
+            param.menuName =menuName;
+            param.fatherId = 0;
+            $.ajax({
+                type: "POST",
+                url: "/menu/addMenu",
+                data : JSON.stringify(param),
+                contentType : "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function(data){
+                    zTree.addNodes(null, {id:data, pId:0, name:menuName});
+                    layer.close(index);
+                }
+            });
+        }
     });
 }
